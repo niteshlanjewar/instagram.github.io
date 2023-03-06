@@ -1,7 +1,14 @@
 import React from 'react';
-import {FaSistrix} from "react-icons/fa"
+import {FaRegCompass, FaRegHeart, FaSistrix, FaTelegramPlane} from "react-icons/fa"
+import {MdHome} from "react-icons/md"
+import {ContextProvider} from "../Global/Context"
 
 const Navbar = () => {
+  const {model} = React.useContext(ContextProvider)
+  console.log("myModel", model);
+  const openForms = () => {
+
+  }
   return (
     <div className='navbar'>
       <div className='navbar__first'>
@@ -21,7 +28,19 @@ const Navbar = () => {
 
 
       <div className='navbar__last'>
-
+     <li>
+      <MdHome className="navbar_icons"/>
+     </li>
+     <li>
+      <FaTelegramPlane className="navbar_icons"/>
+     </li>
+     <li>
+      <FaRegCompass className="navbar_icons"/>
+     </li>
+     <li>
+      <FaRegHeart className="navbar_icons"/>
+     </li>
+     <li onClick={openForms}>Register/Login </li>
       </div>
     </div>
   )

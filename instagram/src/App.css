@@ -78,3 +78,18 @@ body{
   left: 30px;
   color: silver;
 }
+.navbar__last{
+  display: flex;
+  width: 33.33333333333333%;
+  justify-content: flex-end;
+}
+.navbar__last li{
+list-style-type: none;
+display: inline-block;
+margin: 0 10px;
+cursor: pointer;
+}
+.navbar_icons{
+font-size: 25px;
+cursor: pointer;
+}

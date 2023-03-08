@@ -1,10 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { ContextProvider } from '../Global/Context';
 
 const Model = () => {
+  const {model} = React.useContext(ContextProvider);
   return (
-    <div className='model'>
-      
-    </div>
+    <>
+
+    {model ? <div className='model'>
+      <div className='model__container'>
+     <div className='model__container__forms'>
+<h1>hello user</h1>
+     </div>
+      </div>
+    </div> : ""}
+
+    </>
   )
 }
 

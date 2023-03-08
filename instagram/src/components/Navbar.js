@@ -4,10 +4,10 @@ import {MdHome} from "react-icons/md"
 import {ContextProvider} from "../Global/Context"
 
 const Navbar = () => {
-  const {model} = React.useContext(ContextProvider)
-  console.log("myModel", model);
+  const {model, openModel} = React.useContext(ContextProvider)
+  console.log("my model", model);
   const openForms = () => {
-
+    openModel();
   }
   return (
     <div className='navbar'>

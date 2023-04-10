@@ -2,7 +2,7 @@ import React from 'react';
 import { ContextProvider } from '../Global/Context';
 
 const Model = () => {
-  const {model} = React.useContext(ContextProvider);
+  const {model, closeModel} = React.useContext(ContextProvider);
   const [state, setState] = React.useState({
     register: true,
     login: false
@@ -15,12 +15,18 @@ const Model = () => {
 
     })
   };
+  const closeForm = (e) => {
+    const className = e.target.getAttribute("class");
+    if(className === "model"){
+      closeModel();
+    }
+  }
   return (
     <>
 
-    {model ? <div className='model'>
+    {model ? <div className='model' onClick= {closeForm}>
       <div className='model__container'>
-     <div className='model__form'>
+        {state.register ?  <div className='model__form'>
      <form>
       <div className='model__group'>
      <img src='/images/instagramLogo.png' alt='' />
@@ -46,7 +52,30 @@ const Model = () => {
         </div>
 
      </form>
-     </div>
+     </div> :  <div className='model__form'>
+     <form>
+      <div className='model__group'>
+     <img src='/images/instagramLogo.png' alt='' />
+      </div>
+        <div className='model__group'>
+        <input type="email" name="email" class="model__input" placeholder='Email...' />
+        </div>
+       
+        <div className='model__group'>
+        <input type="password" name="password" class="model__input" placeholder='Create password...' />
+        </div>
+
+        <div className='model__group'>
+        <input type="submit" value="Login" class="btn btn-smart" />
+        </div>
+
+        <div className='model__group'>
+        <span onClick={formsToggle}>Create a new account ?</span>
+        </div>
+
+     </form>
+     </div>}
+    
       </div>
     </div> : ""}
 

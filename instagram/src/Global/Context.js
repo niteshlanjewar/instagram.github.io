@@ -5,8 +5,11 @@ const Context = (props) => {
     const [model, setmodel] = React.useState(false);
     const openModel = () => {
       setmodel(true);
-    }
-  return ( <ContextProvider.Provider value={{model, openModel}}> {props.children} </ContextProvider.Provider> );
+    };
+    const closeModel = () => {
+      setmodel(false);
+    };
+  return ( <ContextProvider.Provider value={{model, openModel, closeModel}}> {props.children} </ContextProvider.Provider> );
 };
 
 export default Context;

@@ -6,7 +6,15 @@ const Model = () => {
   const [state, setState] = React.useState({
     register: true,
     login: false
+  });
+  const [inputs, setInputs] = React.useState({
+    username: '',
+    email: '',
+    password: ''
   })
+  const handleInput = e => {
+    setInputs({...inputs, [e.target.name]: e.target.value});
+  }
   const formsToggle = ()=>{
     setState({
       ...state,
@@ -21,30 +29,57 @@ const Model = () => {
       closeModel();
     }
   }
+  const registerUser = (e) =>{
+  e.preventDefault();
+  console.log("fine")
+  };
   return (
     <>
 
     {model ? <div className='model' onClick= {closeForm}>
       <div className='model__container'>
         {state.register ?  <div className='model__form'>
-     <form>
+     <form onSubmit={registerUser}>
       <div className='model__group'>
      <img src='/images/instagramLogo.png' alt='' />
       </div>
       <div className='model__group'>
-        <input type="text" name="username" class="model__input" placeholder='Username...' />
+        <input type="text" 
+        name="username"
+         className="model__input"
+          placeholder='Username...' 
+          onChange={handleInput}
+          value={inputs.username}
+          required
+          />
         </div>
 
         <div className='model__group'>
-        <input type="email" name="email" class="model__input" placeholder='Email...' />
+        <input type="email" 
+        name="email" 
+        className="model__input" 
+        placeholder='Email...'
+        onChange={handleInput}
+          value={inputs.email} 
+          required
+        />
         </div>
        
         <div className='model__group'>
-        <input type="password" name="password" class="model__input" placeholder='Create password...' />
+        <input type="password" 
+        name="password" 
+        className="model__input" 
+        placeholder='Create password...' 
+        onChange={handleInput}
+          value={inputs.password}
+          required
+        />
         </div>
 
         <div className='model__group'>
-        <input type="submit" value="Register" class="btn btn-smart" />
+        <input type="submit" 
+        value="Register" 
+        className="btn btn-smart" />
         </div>
 
         <div className='model__group'>
@@ -58,15 +93,25 @@ const Model = () => {
      <img src='/images/instagramLogo.png' alt='' />
       </div>
         <div className='model__group'>
-        <input type="email" name="email" class="model__input" placeholder='Email...' />
+        <input type="email" 
+        name="email" 
+        className="model__input" 
+        placeholder='Email...' 
+        />
         </div>
        
         <div className='model__group'>
-        <input type="password" name="password" class="model__input" placeholder='Create password...' />
+        <input type="password" 
+        name="password" 
+        className="model__input" 
+        placeholder='Create password...' 
+        />
         </div>
 
         <div className='model__group'>
-        <input type="submit" value="Login" class="btn btn-smart" />
+        <input type="submit" 
+        value="Login" 
+        className="btn btn-smart" />
         </div>
 
         <div className='model__group'>

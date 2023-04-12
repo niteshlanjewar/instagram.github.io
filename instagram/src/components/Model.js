@@ -2,7 +2,7 @@ import React from 'react';
 import { ContextProvider } from '../Global/Context';
 
 const Model = () => {
-  const {model, closeModel} = React.useContext(ContextProvider);
+  const {model, closeModel, register} = React.useContext(ContextProvider);
   const [state, setState] = React.useState({
     register: true,
     login: false
@@ -31,7 +31,8 @@ const Model = () => {
   }
   const registerUser = (e) =>{
   e.preventDefault();
-  console.log("fine")
+  console.log(inputs);
+  //register(inputs)
   };
   return (
     <>

@@ -11,19 +11,19 @@ const Context = (props) => {
       setmodel(false);
     };
     const register = async (user) => {
-       const {username, email, password};
-       setmodel(false)
+       const {username, email, password} = user;
        try {
-        
+        const res = await auth.createUserWithEmailAndPassword({email, password})
+       res.user.updateProfile({displayName: username})
+       setmodel(false)
        } catch (error) {
         console.log(error)
        }
-       const res = await auth.createUserWithEmailAndPassword({email, password})
-       res.user.updateProfile({displayName: username})
+       
 
     }
   return ( 
-  <ContextProvider.Provider value={{model, openModel, closeModel}}> 
+  <ContextProvider.Provider value={{model, openModel, closeModel, register}}> 
   {props.children} 
   </ContextProvider.Provider> 
   );
